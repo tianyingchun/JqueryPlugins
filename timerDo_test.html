@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>HTML5 Iframe Dragging</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script type="text/javascript" src="dateFormat.js"></script>
+	<script type="text/javascript" src="timerdo.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			$("#timer1,#timer2").timerDo({ startTime:['01/21/2013 08:10:05','01/21/2013 05:10:50'], timeout:1000, elapseStep:1, formatter:''},function($this,dateObject){
+
+				$this.find("div").html(dateObject.format("yyyy-mm-dd HH:MM:ss"));
+			});
+		});
+	</script>
+</head>
+<body>
+   <div id="timer1" style="height:50px;">
+   		<div class="output1">
+   		</div>
+   </div>
+   <div id="timer2" style="height:50px;">
+   		<div id="output2">
+   		</div>
+   </div>
+</body>
+</html>
