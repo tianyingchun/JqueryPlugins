@@ -44,7 +44,7 @@
             this.active();
         },
         active: function () {
-            var self = this;
+            var self = this;  
             self.$ddButton.bind("mouseenter", function () {
 
                 var $this = $(this), thisWidth = $this.width();
@@ -91,7 +91,10 @@
     // extend jquery prototype, add "dropDownButton" plugin.
     $.fn.extend({
         /**
-        * Export an interface method
+        * Export an interface method,Please Note:the DOM structure between #tnCommunity and '#tnCommunityList' can't have Nested relations
+        * The error structure is "<li id='tnCommunity'><div id='tnCommunityList'></div></li>"
+        * The right structure is "<li id='tnCommunity'></li><div id='tnCommunityList'></div>"
+        * Because of the mouseleave event invoke issue.
         * @param  {jquery object} $elems all jq object that  you want to trigger dropdown menu list.eg. $("#tnCommunity,#tnHelp");
         * @param  {object} options An object that can hold configuration
         *         eg.{ 
