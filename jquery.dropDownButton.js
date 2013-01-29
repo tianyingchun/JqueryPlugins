@@ -53,7 +53,7 @@
                 // Add mouseenter active class on ddbutton.
                 $this.addClass(self.activeClass);
 
-                self.$ddList.css({ display: 'block', top: self.$topNav.height() });
+                self.$ddList.css({ display: 'block', top: self.$topNav.height()+self.offset.y });
 
                 // Diff with of ddButtom and ddList
                 var ddListWidth = self.$ddList.width(), diffWidth = (ddListWidth > thisWidth) ? (ddListWidth - thisWidth) : 0;
@@ -62,11 +62,11 @@
 
                 if (self.direction == "right") {
                     self.$ddList.addClass("d-right");
-                    self.$ddList.css({ left: $this.offset().left - self.$topNav.offset().left + self.offset });
+                    self.$ddList.css({ left: $this.offset().left - self.$topNav.offset().left + self.offset.x });
                 }
                 else {
                     self.$ddList.addClass("d-left");
-                    self.$ddList.css({ left: $this.offset().left - self.$topNav.offset().left - diffWidth + self.offset });
+                    self.$ddList.css({ left: $this.offset().left - self.$topNav.offset().left - diffWidth + self.offset.x });
                 }
                 // invoke callback function.
                 if ($.isFunction(self.callback)) self.callback(self.$ddList);
@@ -98,7 +98,7 @@
                          listSelector:  ['#tnCommunityList', '#tnHelpList'],
                          topNav: '#topNav',
                          activeClass: 'tn-active',
-                         directions:[{offset:0,direction:'right'},{offset:20,direction:'left'}]
+                         directions:[{offset:{x:0,y:0},direction:'right'},{offset:{x:0,y:0},direction:'left'}]
                      };
         * @param  {function} the callback function that should be invoked while the pop panel has just shown.
 
@@ -112,9 +112,10 @@
                 if (directions[index] && directions[index].direction) {
                     _direction = directions[index].direction;
                     _offset = directions[index].offset;
-                }
+                } 
                 if ($thisList.length) {
-                    var newOpts = $.extend({}, options, { list: $thisList, topNav: $topNav, direction: _direction, offset: _offset, callback: $.isFunction(callbackFn) ? callbackFn : function () { } });
+                    var newOpts = $.extend({}, options, { list: $thisList.eq(0), topNav: $topNav, direction: _direction, offset: _offset, callback: $.isFunction(callbackFn) ? callbackFn : function () { } });
+                    //console.log("newOpts",newOpts);
                     new DropdownButton($thisBtn, newOpts).init();
                 }
             });
