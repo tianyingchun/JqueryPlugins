@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Waypoint sticy menu demo</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <style type="text/css">
+    	#header{
+    		width: 100%;
+    		overflow:hidden;
+        height: 100px;
+    	}
+      #header-top{
+         position: relative; 
+         width:100%;
+         height: 40px;
+         margin: 0 auto;
+         background: #fff url(imgs/header-bg.jpg) repeat-x left bottom; 
+         /*box-shadow: 3px 3px 6px -2px #ccc;*/
+      }
+      #header-top.sticky{
+        position: fixed;
+      }
+      #page{
+         height: 1500px;
+      }
+      #footer{
+        height: 50px
+        background:#ccc;
+        border-top:1px solid #ccc;
+      }
+    </style>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> 
+	<script type="text/javascript" src="../waypoints.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			  $("#header-top").waypoint({
+            handler:function(direction){
+              var $this=$(this);
+              var outerHeight=$this.height(); 
+              var offset_waypoint=0;
+              if (direction == 'down') {   
+                  $this.stop().addClass("sticky").css("top",-outerHeight).animate({"top":0}); 
+              } else {  
+                  $this.stop().removeClass("sticky").css("top",outerHeight+offset_waypoint).animate({"top":0});
+              }
+            },
+            offset:function(){
+               return -$(this).height();
+            }
+        });
+		});
+	</script>
+</head>
+<body>
+   <div id="header">
+   		<div id="header-top">
+          header top module
+   		</div>
+   </div>
+   <div id="page">
+    page content
+   </div>
+   <div id="footer">
+    footer 
+   </div>
+</body>
+</html>

@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 html,body {
-    background: url(http://p.ebaystatic.com/aw/pics/cmp/ds3/imgbg.jpg) repeat 0 0 #f8f8f8;
+    background: url(imgs/imgbg.jpg) repeat 0 0 #f8f8f8;
     color: #333;
     font-size: 16px;
     font-family: "Helvetica neue",Helvetica,Arial,Sans-serif;
