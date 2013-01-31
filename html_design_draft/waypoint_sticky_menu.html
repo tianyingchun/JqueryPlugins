@@ -7,7 +7,12 @@
     	#header{
     		width: 100%;
     		overflow:hidden;
-        height: 100px;
+    		/*
+    		waypoints need us give an fixed height property wrapper container #header for #header-top
+    		because if we set auto height for wrapper holder of #header-top it doesn't work ok in IE 7,8,9 
+    		maybe it is waypoints plugin's bug
+    		*/
+        	height: 100px;
     	}
       #header-top{
          position: relative; 
@@ -33,6 +38,10 @@
 	<script type="text/javascript" src="../waypoints.js"></script>
 	<script type="text/javascript">
 		$(function(){
+			/*waypoints need us give an fixed height property wrapper container #header for #header-top
+    	        	because if we set auto height for wrapper holder of #header-top it doesn't work ok in IE 7,8,9 
+    	        	maybe it is waypoints plugin's bug
+    	        	*/
 			  $("#header-top").waypoint({
             handler:function(direction){
               var $this=$(this);
