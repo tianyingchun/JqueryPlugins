@@ -1,0 +1,52 @@
+
+<!DOCTYPE HTML xmlns:fb="http://www.facebook.com/2008/fbml">
+<html>
+<head>
+    <title>Waypoint sticy menu demo</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <style type="text/css">
+	    ul{
+	    	position: absolute;
+			left: 10px; 
+			z-index: 10;
+			height: 25px;
+	    }
+	    ul.one{
+	    	left:0;
+	    	top:10px;
+	    }
+	    ul.two{
+	    	left:100px;
+	    	top:200px;
+	    }
+       ul li{
+       	   float:left;
+       	   height: 25px;
+           padding:0 10px;
+        }
+    </style>
+    <script type="text/javascript" src="http://connect.facebook.net/en_GB/all.js#xfbml=1"></script>
+	<script type="text/javascript" src="http://static.ak.fbcdn.net/connect.php/js/FB.Share"></script>
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+</head>
+<body>
+   <div id="container">
+   	<ul class="one"> 
+   		 <li><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.ea.com/asia/crysis-3">Tweet</a></li>
+   		 <li><fb:share-button type="button"></fb:share-button></li>
+   		 <li><g:plusone annotation="none" href="http://wiki.answers.com/Q/What_is_sns_integration" callback="logPlusOne"></g:plusone></li>
+   		 <li><div class="g-plus" data-href="https://plus.google.com/1"></div></li>
+   	</ul>  
+   	<ul class="two">
+   		 <li class="item-1 odd first twitter">
+				<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a>
+		 </li>
+		 <li class="item-2 even last facebook">
+				<fb:like layout="box_count" send="true" show_faces="false" font="arial" data-width="280"></fb:like>
+		</li>
+   	</ul>
+   </div> 
+</body>
+</html>
+
