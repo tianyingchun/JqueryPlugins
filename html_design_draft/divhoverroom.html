@@ -119,28 +119,12 @@
     <script type="text/javascript" src="../jquery1.9.0.min.js"></script>
     <script type="text/javascript">
         $(function(){
-            $("#holder .offered-item").bind("mouseenter mouseleave",function(evt){
+            $("#holder .item-line > li").hover(function(){
                 var $this=$(this);
-                if(evt.type=="mouseenter"){
-                    $this.addClass("hover");
-                    // $this.animate({
-                    //      height: "230",
-                    //      width: "230",
-                    //      left: "-=20",
-                    //      top: "-=20"
-                    // },'fast');  
-                    console.log("current event type is mouse enter");
-                }
-                else{
-                    $this.removeClass("hover");
-                    // $this.animate({
-                    //      height: "210",
-                    //      width: "210",
-                    //      left: "+=20",
-                    //      top: "+=20"
-                    // },'fast');  
-                    console.log("current event type is mouse leave.");
-                }
+                $this.addClass("hover");
+            },function(){
+                var $this=$(this);
+                $this.removeClass("hover");
             });
         });
     </script>
