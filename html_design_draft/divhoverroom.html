@@ -27,17 +27,11 @@
             width: 33%;
             float: left;
         }
-        .offered-item{  
-            padding-top: 12px; 
-            height: 360px;
-            width: 265px; 
-            background: url(imgs/product-item.png) no-repeat 0 0;
+        .offered-item{   
+            height: 370px;
+            width: 265px;  
             overflow: hidden;
-         }  
-         /*For .offered-item hover class*/
-        div.hover{
-             background: url(imgs/product-item.png) no-repeat 0 -29px;
-        }
+         }   
          .offers{ 
             width: 265px; 
             background-color: #fff;
@@ -49,7 +43,11 @@
             z-index: 180;
             overflow: hidden;
          }
-          div.hover .offers{ 
+           /*For .offered-item hover class*/
+         div.hover .top{
+             background: url(imgs/product-item.png) no-repeat 0 -29px;
+         }
+         div.hover{ 
             z-index: 190;
             /* box-shadow: 2px 2px 11px rgba(25,25,25,0.8);
             -moz-box-shadow: 2px 2px 11px rgba(25,25,25,0.8);
@@ -60,13 +58,19 @@
            padding:10px 20px; 
             width: 225px;
          }
+         .offers .top{
+             height: 12px;
+             width: 265px; 
+             background: url(imgs/product-item.png) no-repeat 0 0;
+             overflow: hidden;
+         }
         .offers .bottom{
              height: 15px;
              width: 265px; 
              background:#fff  url(imgs/product-item.png) no-repeat 0 -14px;
              overflow: hidden;
          }
-        div.hover .offers .bottom{
+        div.hover .bottom{
              background:#fff  url(imgs/product-item.png) no-repeat 0 -42px;
         }
          .offers .img{
@@ -142,12 +146,19 @@
          }
     </style>
     <script type="text/javascript" src="../jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="../jquery.hoverIntent.js"></script>
     <script type="text/javascript">
         $(function(){
-           $("div.offers").hover(function() { 
-             $(this).parent().addClass("hover");  
-           }, function() {
-              $(this).parent().removeClass("hover");    
+           $("div.offers").hoverIntent(function() { 
+                 $this=$(this); 
+                 $this.stop(true,true).animate({
+                    "margin-top":"-=15px"
+                 },'fast').addClass("hover");
+             }, function() {
+                   $this=$(this); 
+                   $this.stop(true,true).animate({
+                      "margin-top":"+=15px"
+                },'fast').removeClass("hover");
             });
         });
     </script>
@@ -158,6 +169,7 @@
             <li> 
                 <div class="offered-item"> 
                     <div class="offers">
+                        <div class="top"></div>
                           <div class="offers-inner">
                                 <div class="img">
                                     <i></i>
@@ -193,6 +205,7 @@
             <li> 
                 <div class="offered-item">
                     <div class="offers">
+                        <div class="top"></div>
                         <div class="offers-inner">
                             <div class="img">
                                 <i></i>
@@ -228,6 +241,7 @@
             <li> 
                 <div class="offered-item">
                     <div class="offers">
+                        <div class="top"></div>
                         <div class="offers-inner">
                                 <div class="img">
                                     <i></i>
@@ -259,10 +273,11 @@
                         <div class="bottom"></div>
                     </div>
                 </div>
-            </li> 
+            </li>  
              <li> 
                 <div class="offered-item"> 
                     <div class="offers">
+                        <div class="top"></div>
                           <div class="offers-inner">
                                 <div class="img">
                                     <i></i>
@@ -298,6 +313,7 @@
             <li> 
                 <div class="offered-item">
                     <div class="offers">
+                        <div class="top"></div>
                         <div class="offers-inner">
                             <div class="img">
                                 <i></i>
@@ -333,6 +349,7 @@
             <li> 
                 <div class="offered-item">
                     <div class="offers">
+                        <div class="top"></div>
                         <div class="offers-inner">
                                 <div class="img">
                                     <i></i>
@@ -364,7 +381,7 @@
                         <div class="bottom"></div>
                     </div>
                 </div>
-            </li> 
+            </li>  
         </ul>
     </div>
 </body>
