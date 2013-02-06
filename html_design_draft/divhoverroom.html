@@ -191,11 +191,11 @@
             display: inline-block;
          }
     </style>
-    <script type="text/javascript" src="../jquery1.9.0.min.js"></script>
-    <script type="text/javascript" src="../jquery.hoverIntent.js"></script>
-    <script type="text/javascript">
-
-    </script>
+    <link rel="stylesheet" type="text/css" href="jBox.css">
+    <script type="text/javascript" src="../jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../jquery.hoverIntent.js"></script> 
+    <script type="text/javascript" src="../jquery.socialnetwork.js"></script>
+    <script type="text/javascript" src="../jquery.jBox-2.3.min.js"></script>
     <script type="text/javascript">
         $(function(){
            $("div.offers").hoverIntent(function() { 
@@ -208,52 +208,9 @@
                    $this.stop(true,true).animate({
                       "margin-top":"+=15px"
                 },'fast').removeClass("hover");
-            });
+            }); 
         });
-    </script>
-
-    <script type="text/javascript">
-       
-        (function($){
- 
-            function SNSFactory{
-                var data=function(){
-                    this.title="";
-                    this.url="";
-                    this.summary="";
-                    this.images=[];
-                }
-                this.sns={
-                    // facebook share button 
-                    'facebook':'http://www.facebook.com/sharer.php?s=100&p[title]=%title%&p[url]=%currentUrl%&p[summary]=%pageSummary%&p[images][0]=%images%'
-
-
-            }
-            $.fn.extend({
-                SNS:function(options){
-                    return this.each(function(idx){
-                        var $this=$(this);
-
-                    });
-                }
-            });
-        }
-
-        })(jQuery);
-
-        function openSNSPage(siteType,pageTitle,pageDesc,currentUrl,imageThumbs){ 
-
-            var currentURL = encodeURIComponent(currentURL);
-            var title = encodeURIComponent(pageTitle);
-            var bodytext = encodeURIComponent(pageDescription);
-
-            var fb="http://www.facebook.com/sharer.php?s=100&p[title]=titlehere&p[url]=http://www.yoururlhere.com&p[summary]=yoursummaryhere&p[images][0]=http://i.ebayimg.com/00/$(KGrHqR,!jIFEEqlt-,iBRES1hdeTg~~_35.JPG";
-
-            var facebook="https://www.facebook.com/sharer/sharer.php?s=100&p%5Btitle%5D=titlehere&p%5Burl%5D=http%3A%2F%2Fwww.yoururlhere.com&p%5Bsummary%5D=yoursummaryhere&p%5Bimages%5D%5B0%5D=http://i.ebayimg.com/00/$(KGrHqR,!jIFEEqlt-,iBRES1hdeTg~~_35.JPG";
-
-        }
-
-    </script>
+    </script> 
 </head>
 <body> 
     
@@ -362,7 +319,7 @@
                                             <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
                                             </li>
                                             <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
-                                            </li>
+                                            </li> 
                                     </ul>
                                 </div>
                                 <div class="meta">
@@ -485,12 +442,19 @@
     </div>
     <div class="sns-icon-module">
         <ul>
-            <li><img data-key="pinterest" src="http://assets.pinterest.com/images/pidgets/pin_it_button.png" /></li>
-            <li><img data-key="facebook"  src=""></li>           
+            <li data-key="pinterest" data-i="http://www.dhresource.com/dhs/fob/img/home/home/1.jpg" data-s="pinterst summary testing"><img src="http://assets.pinterest.com/images/pidgets/pin_it_button.png" /></li>
+            <li data-key="facebook" data-i='http://www.dhresource.com/dhs/fob/img/home/home/1.jpg'
+                data-u="http://www.dhgate.com/promotion-a-line-spaghetti-v-neck-beaded/p-ff8080813a071f7b013a63479ecc2965.html#nhp1208-bese-1" data-t="test title" data-s="Test summary & summary"><a href="#">facebook</a></li>           
         </ul>
 http://business.pinterest.com/widget-builder/#do_pin_it_button
 
         http://pinterest.com/pin/create/button/?url=http://deals.ebay.com/5000195599_Sony_HDR_CX190_High_Definition_Camcorder_w__Extra_Battery___16GB_Card&media=http://i.ebayimg.com/00/$(KGrHqJHJE8FD5m(bc2sBRES6Z4yq!~~_35.JPG
     </div>
+    <<script type="text/javascript">
+        $(function(){
+            // bind sns share button.
+            $(".sns-icon-module").find("li").SNS();
+        });
+    </script>
 </body>
 </html>
