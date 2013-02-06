@@ -7,7 +7,7 @@
         #holder{ 
             width: 820px;
             margin: 20px auto;
-            padding: 30px 10px;
+            padding: 30px 10px 60px;
             font-size: 13px;
             background: #fff;
             border: 1px solid #DDD;
@@ -17,37 +17,58 @@
             overflow: hidden;
         }
         ul.item-line{
-            width:760px;  
-            margin: 0 auto; 
+            width: 800px;
+            /*overflow: hidden;*/
+            margin: 0 auto;  
             position: relative;
-            z-index: 320;
-        }
-        ul.item-line a{
-            color:#0032b1;
-        }
-         ul.item-line li{
+            z-index: 200;
+        } 
+        ul.item-line li{
             width: 33%;
             float: left;
         }
-        .offered-item{
-            min-height: 1px;
-            width: 250px;
-            overflow: hidden; 
-         } 
-         .offers{
-            padding: 10px;
-            margin: 10px;
-            margin-bottom: 15px; 
+        .offered-item{  
+            padding-top: 12px; 
+            height: 360px;
+            width: 265px; 
+            background: url(imgs/product-item.png) no-repeat 0 0;
+            overflow: hidden;
+         }  
+         /*For .offered-item hover class*/
+        div.hover{
+             background: url(imgs/product-item.png) no-repeat 0 -29px;
+        }
+         .offers{ 
+            width: 265px; 
             background-color: #fff;
-            box-shadow: 1px 1px 6px rgba(34,25,25,0.5);
+            /*box-shadow: 1px 1px 6px rgba(34,25,25,0.5);
             -moz-box-shadow: 1px 1px 6px rgba(34,25,25,0.5);
-            -webkit-box-shadow: 1px 1px 6px rgba(34,25,25,0.5);
+            -webkit-box-shadow: 1px 1px 6px rgba(34,25,25,0.5);*/
+            background: #fff url(imgs/product-item-bg.png) repeat-y;
+            position: absolute;
+            z-index: 180;
             overflow: hidden;
          }
-        div.hover .offers{
-            position: absolute;
-            z-index: 300;
+          div.hover .offers{ 
+            z-index: 190;
+            /* box-shadow: 2px 2px 11px rgba(25,25,25,0.8);
+            -moz-box-shadow: 2px 2px 11px rgba(25,25,25,0.8);
+            -webkit-box-shadow: 2px 2px 11px rgba(25,25,25,0.8);*/
+            background:#fff  url(imgs/product-itemhover-bg.png) repeat-y;
          }
+         .offers .offers-inner{
+           padding:10px 20px; 
+            width: 225px;
+         }
+        .offers .bottom{
+             height: 15px;
+             width: 265px; 
+             background:#fff  url(imgs/product-item.png) no-repeat 0 -14px;
+             overflow: hidden;
+         }
+        div.hover .offers .bottom{
+             background:#fff  url(imgs/product-item.png) no-repeat 0 -42px;
+        }
          .offers .img{
             height: 210px;
             width: 210px;
@@ -62,10 +83,14 @@
          .offers .title h4 {
             max-width: 225px;
             overflow: hidden;
+            font-weight: normal;
             text-overflow: ellipsis;
             white-space: nowrap;
          }
-         .hover .offers .title h4{
+         .offers .title h4 a{
+            color:#0032b1; 
+         }
+         .hover .title h4{
             overflow: visible;
             text-overflow: ellipsis;
             white-space: normal;
@@ -119,215 +144,227 @@
     <script type="text/javascript" src="../jquery1.9.0.min.js"></script>
     <script type="text/javascript">
         $(function(){
-            $("#holder .item-line > li").hover(function(){
-                var $this=$(this);
-                $this.addClass("hover");
-            },function(){
-                var $this=$(this);
-                $this.removeClass("hover");
+           $("div.offers").hover(function() { 
+             $(this).parent().addClass("hover");  
+           }, function() {
+              $(this).parent().removeClass("hover");    
             });
         });
     </script>
 </head>
-<body>
-    http://demo.superdit.com/jquery/zoom_hover/
-    http://codecanyon.net/item/hoverex-jquery-image-hover-animation-plugin/full_screen_preview/3450469
+<body> 
     <div id="holder">
         <ul class="item-line">
             <li> 
+                <div class="offered-item"> 
+                    <div class="offers">
+                          <div class="offers-inner">
+                                <div class="img">
+                                    <i></i>
+                                    <a href="#" class="img" itemprop="url">
+                                        <img src="http://thumbs4.ebaystatic.com/d/l225/pict/390496280071003_1.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
+                                    </a>
+                                </div>
+                                <div class="title">
+                                    <h4>
+                                        <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts ShCasual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
+                                        </h4>
+                                </div>
+                                <div class="prices">
+                                    <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
+                                    <span class="buynow">Buy it now</span>
+                                </div>
+                                <div class="attrs">
+                                    <ul>
+                                            <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
+                                            </li>
+                                            <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
+                                            </li>
+                                    </ul>
+                                </div>
+                                <div class="meta">
+                                    <span class="free">Free shipping</span>
+                                </div> 
+                          </div>
+                          <div class="bottom"></div>
+                    </div>  
+                </div>
+            </li>
+            <li> 
                 <div class="offered-item">
                     <div class="offers">
-                        <div class="img">
-                            <i></i>
-                            <a href="#" class="img" itemprop="url">
-                                <img src="http://thumbs4.ebaystatic.com/d/l225/pict/390496280071003_1.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
-                            </a>
+                        <div class="offers-inner">
+                            <div class="img">
+                                <i></i>
+                                <a href="#" class="img" itemprop="url">
+                                    <img src="http://thumbs3.ebaystatic.com/d/l225/m/mR4KReMntq6MsITt0CX7i_g.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
+                                </a>
+                            </div>
+                            <div class="title">
+                                <h4>
+                                    <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
+                                    </h4>
+                            </div>
+                            <div class="prices">
+                                <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
+                                <span class="buynow">Buy it now</span>
+                            </div>
+                            <div class="attrs">
+                                <ul>
+                                        <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
+                                        </li>
+                                        <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
+                                        </li>
+                                </ul>
+                            </div>
+                            <div class="meta">
+                                <span class="free">Free shipping</span>
+                            </div>
                         </div>
-                        <div class="title">
-                            <h4>
-                                <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
-                                </h4>
-                        </div>
-                        <div class="prices">
-                            <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
-                            <span class="buynow">Buy it now</span>
-                        </div>
-                        <div class="attrs">
-                            <ul>
-                                    <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
-                                    </li>
-                                    <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
-                                    </li>
-                            </ul>
-                        </div>
-                        <div class="meta">
-                            <span class="free">Free shipping</span>
-                        </div>
+                        <div class="bottom"></div>
                     </div>
                 </div>
             </li>
             <li> 
                 <div class="offered-item">
                     <div class="offers">
-                        <div class="img">
-                            <i></i>
-                            <a href="#" class="img" itemprop="url">
-                                <img src="http://thumbs3.ebaystatic.com/d/l225/m/mR4KReMntq6MsITt0CX7i_g.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
-                            </a>
+                        <div class="offers-inner">
+                                <div class="img">
+                                    <i></i>
+                                    <a href="#" class="img" itemprop="url">
+                                        <img src="http://thumbs3.ebaystatic.com/d/l225/m/mDxQDv_w5JMIA9AdYcUcHXQ.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
+                                    </a>
+                                </div>
+                                <div class="title">
+                                    <h4>
+                                        <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
+                                        </h4>
+                                </div>
+                                <div class="prices">
+                                    <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
+                                    <span class="buynow">Buy it now</span>
+                                </div>
+                                <div class="attrs">
+                                    <ul>
+                                            <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
+                                            </li>
+                                            <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
+                                            </li>
+                                    </ul>
+                                </div>
+                                <div class="meta">
+                                    <span class="free">Free shipping</span>
+                                </div>
                         </div>
-                        <div class="title">
-                            <h4>
-                                <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
-                                </h4>
+                        <div class="bottom"></div>
+                    </div>
+                </div>
+            </li> 
+             <li> 
+                <div class="offered-item"> 
+                    <div class="offers">
+                          <div class="offers-inner">
+                                <div class="img">
+                                    <i></i>
+                                    <a href="#" class="img" itemprop="url">
+                                        <img src="http://thumbs4.ebaystatic.com/d/l225/pict/390496280071003_1.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
+                                    </a>
+                                </div>
+                                <div class="title">
+                                    <h4>
+                                        <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts ShCasual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
+                                        </h4>
+                                </div>
+                                <div class="prices">
+                                    <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
+                                    <span class="buynow">Buy it now</span>
+                                </div>
+                                <div class="attrs">
+                                    <ul>
+                                            <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
+                                            </li>
+                                            <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
+                                            </li>
+                                    </ul>
+                                </div>
+                                <div class="meta">
+                                    <span class="free">Free shipping</span>
+                                </div> 
+                          </div>
+                          <div class="bottom"></div>
+                    </div>  
+                </div>
+            </li>
+            <li> 
+                <div class="offered-item">
+                    <div class="offers">
+                        <div class="offers-inner">
+                            <div class="img">
+                                <i></i>
+                                <a href="#" class="img" itemprop="url">
+                                    <img src="http://thumbs3.ebaystatic.com/d/l225/m/mR4KReMntq6MsITt0CX7i_g.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
+                                </a>
+                            </div>
+                            <div class="title">
+                                <h4>
+                                    <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
+                                    </h4>
+                            </div>
+                            <div class="prices">
+                                <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
+                                <span class="buynow">Buy it now</span>
+                            </div>
+                            <div class="attrs">
+                                <ul>
+                                        <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
+                                        </li>
+                                        <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
+                                        </li>
+                                </ul>
+                            </div>
+                            <div class="meta">
+                                <span class="free">Free shipping</span>
+                            </div>
                         </div>
-                        <div class="prices">
-                            <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
-                            <span class="buynow">Buy it now</span>
-                        </div>
-                        <div class="attrs">
-                            <ul>
-                                    <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
-                                    </li>
-                                    <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
-                                    </li>
-                            </ul>
-                        </div>
-                        <div class="meta">
-                            <span class="free">Free shipping</span>
-                        </div>
+                        <div class="bottom"></div>
                     </div>
                 </div>
             </li>
             <li> 
                 <div class="offered-item">
                     <div class="offers">
-                        <div class="img">
-                            <i></i>
-                            <a href="#" class="img" itemprop="url">
-                                <img src="http://thumbs3.ebaystatic.com/d/l225/m/mDxQDv_w5JMIA9AdYcUcHXQ.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
-                            </a>
+                        <div class="offers-inner">
+                                <div class="img">
+                                    <i></i>
+                                    <a href="#" class="img" itemprop="url">
+                                        <img src="http://thumbs3.ebaystatic.com/d/l225/m/mDxQDv_w5JMIA9AdYcUcHXQ.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
+                                    </a>
+                                </div>
+                                <div class="title">
+                                    <h4>
+                                        <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
+                                        </h4>
+                                </div>
+                                <div class="prices">
+                                    <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
+                                    <span class="buynow">Buy it now</span>
+                                </div>
+                                <div class="attrs">
+                                    <ul>
+                                            <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
+                                            </li>
+                                            <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
+                                            </li>
+                                    </ul>
+                                </div>
+                                <div class="meta">
+                                    <span class="free">Free shipping</span>
+                                </div>
                         </div>
-                        <div class="title">
-                            <h4>
-                                <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
-                                </h4>
-                        </div>
-                        <div class="prices">
-                            <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
-                            <span class="buynow">Buy it now</span>
-                        </div>
-                        <div class="attrs">
-                            <ul>
-                                    <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
-                                    </li>
-                                    <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
-                                    </li>
-                            </ul>
-                        </div>
-                        <div class="meta">
-                            <span class="free">Free shipping</span>
-                        </div>
+                        <div class="bottom"></div>
                     </div>
                 </div>
-            </li>
-        </ul>
-        <ul class="item-line">
-            <li> 
-                <div class="offered-item">
-                    <div class="offers">
-                        <div class="img">
-                            <i></i>
-                            <a href="#" class="img" itemprop="url">
-                                <img src="http://thumbs4.ebaystatic.com/d/l225/pict/390496280071003_1.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
-                            </a>
-                        </div>
-                        <div class="title">
-                            <h4>
-                                <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
-                                </h4>
-                        </div>
-                        <div class="prices">
-                            <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
-                            <span class="buynow">Buy it now</span>
-                        </div>
-                        <div class="attrs">
-                            <ul>
-                                    <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
-                                    </li>
-                                    <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
-                                    </li>
-                            </ul>
-                        </div>
-                        <div class="meta">
-                            <span class="free">Free shipping</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li> 
-                <div class="offered-item">
-                    <div class="offers">
-                        <div class="img">
-                            <i></i>
-                            <a href="#" class="img" itemprop="url">
-                                <img src="http://thumbs3.ebaystatic.com/d/l225/m/mR4KReMntq6MsITt0CX7i_g.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
-                            </a>
-                        </div>
-                        <div class="title">
-                            <h4>
-                                <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
-                                </h4>
-                        </div>
-                        <div class="prices">
-                            <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
-                            <span class="buynow">Buy it now</span>
-                        </div>
-                        <div class="attrs">
-                            <ul>
-                                    <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
-                                    </li>
-                                    <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
-                                    </li>
-                            </ul>
-                        </div>
-                        <div class="meta">
-                            <span class="free">Free shipping</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li> 
-                <div class="offered-item">
-                    <div class="offers">
-                        <div class="img">
-                            <i></i>
-                            <a href="#" class="img" itemprop="url">
-                                <img src="http://thumbs3.ebaystatic.com/d/l225/m/mDxQDv_w5JMIA9AdYcUcHXQ.jpg" class="img" alt="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="image">
-                            </a>
-                        </div>
-                        <div class="title">
-                            <h4>
-                                <a href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?pt=US_CSA_WC_Shirts_Tops&amp;hash=item5aeb645e07" class="vip" title="Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion" itemprop="name">Casual Womens Top Button Shirt Chiffon Girls Blouse OL Shirts Sheer Tops Fashion</a>
-                                </h4>
-                        </div>
-                        <div class="prices">
-                            <span class="price-range">$11.38&nbsp;<span>to</span> $13.38</span>
-                            <span class="buynow">Buy it now</span>
-                        </div>
-                        <div class="attrs">
-                            <ul>
-                                    <li title="Blacks" class="libtn"><a style="background-color: #000000;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14760&amp;vti=Color%09Blacks"> </a>
-                                    </li>
-                                    <li title="Blues" class="libtn"><a style="background-color: #657EEA;" href="http://www.ebay.com/itm/Casual-Womens-Top-Button-Shirt-Chiffon-Girls-Blouse-OL-Shirts-Sheer-Tops-Fashion-/390496280071?var=&amp;hash=item99b0f14761&amp;vti=Color%09Blues"> </a>
-                                    </li>
-                            </ul>
-                        </div>
-                        <div class="meta">
-                            <span class="free">Free shipping</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            </li> 
         </ul>
     </div>
 </body>
