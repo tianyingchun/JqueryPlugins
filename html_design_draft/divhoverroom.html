@@ -18,6 +18,7 @@
         }
         ul.item-line{
             width: 800px;
+            clear: both;
             /*overflow: hidden;*/
             margin: 0 auto;  
             position: relative;
@@ -144,9 +145,54 @@
          .offers .meta{
             margin-bottom: 5px;
          }
+
+
+         /**
+          * top specs filter options
+          */
+         .spec-filtered-opts{
+            padding: 10px 20px;
+            overflow: hidden;
+         }
+         .spec-filtered-opts .filtered-item,.clear-filtered-items{ 
+            display: block;
+            white-space: nowrap;
+            font-size: 11px;
+            color: #666;
+            padding: 5px;
+            margin: 2px 5px 3px 0;
+            float: left;
+            border-radius: 4px;
+            cursor: default; 
+            background: #eee;
+         }
+         .filtered-item b{
+            font-weight: normal;
+            line-height: 14px;
+            display: inline-block;
+         }
+         span.clear-filtered-items{
+            margin-left: 15px;
+            background: none;
+         }
+         .clear-filtered-items a{
+            color: #333;
+            display: inline-block;
+            height: 14px;
+            background: none;
+         }
+         .filtered-item a{
+           background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABRVo5BAAAAyUlEQVR42rWSsQ3DMAwEM4LbbMERNEZKV5rDm2gETZAZNIJG0Ag0CbD4fBEBDFIcQOP5ol/iQ1U/qLUexmlcTtQH97HJG5ehxHINe9HUDN3Q0OimAuLAqVEP+C5o7CgY4oZA6OCORs4jCOdmIzIh+2Q9PTGfMX+r+XfMb86vu7rnf8bn630Yp3E5UX//1WhchhLLNexFUzN0Q0OjmwqIA6dGPeC7oLGjYIgbAqGDOxo5jyCcm43IhOyT9fTEdMb8rebfMb85+V29AXAYhSZOQVSlAAAAAElFTkSuQmCC);
+            height: 13px;
+            width: 14px;  
+            display: inline-block;
+         }
     </style>
     <script type="text/javascript" src="../jquery1.9.0.min.js"></script>
     <script type="text/javascript" src="../jquery.hoverIntent.js"></script>
+    <script type="text/javascript">
+
+    </script>
     <script type="text/javascript">
         $(function(){
            $("div.offers").hoverIntent(function() { 
@@ -162,9 +208,59 @@
             });
         });
     </script>
+
+    <script type="text/javascript">
+       
+        (function($){
+ 
+            function SNSFactory{
+                var data=function(){
+                    this.title="";
+                    this.url="";
+                    this.summary="";
+                    this.images=[];
+                }
+                this.sns={
+                    // facebook share button 
+                    'facebook':'http://www.facebook.com/sharer.php?s=100&p[title]=%title%&p[url]=%currentUrl%&p[summary]=%pageSummary%&p[images][0]=%images%'
+
+
+            }
+            $.fn.extend({
+                SNS:function(options){
+                    return this.each(function(idx){
+                        var $this=$(this);
+
+                    });
+                }
+            });
+        }
+
+        })(jQuery);
+
+        function openSNSPage(siteType,pageTitle,pageDesc,currentUrl,imageThumbs){ 
+
+            var currentURL = encodeURIComponent(currentURL);
+            var title = encodeURIComponent(pageTitle);
+            var bodytext = encodeURIComponent(pageDescription);
+
+            var fb="http://www.facebook.com/sharer.php?s=100&p[title]=titlehere&p[url]=http://www.yoururlhere.com&p[summary]=yoursummaryhere&p[images][0]=http://i.ebayimg.com/00/$(KGrHqR,!jIFEEqlt-,iBRES1hdeTg~~_35.JPG";
+
+            var facebook="https://www.facebook.com/sharer/sharer.php?s=100&p%5Btitle%5D=titlehere&p%5Burl%5D=http%3A%2F%2Fwww.yoururlhere.com&p%5Bsummary%5D=yoursummaryhere&p%5Bimages%5D%5B0%5D=http://i.ebayimg.com/00/$(KGrHqR,!jIFEEqlt-,iBRES1hdeTg~~_35.JPG";
+
+        }
+
+    </script>
 </head>
 <body> 
-    <div id="holder">
+    
+    <div id="holder"> 
+      <div class="spec-filtered-opts">
+            <span class="filtered-item"><b>Black</b><a href="#"></a></span>
+            <span class="filtered-item"><b>Black One</b><a href="#"></a></span>
+            <span class="filtered-item"><b>Black Two</b><a href="#"></a></span>
+            <span class="clear-filtered-items"><a href="#">Clear All</a></span>
+      </div>
         <ul class="item-line">
             <li> 
                 <div class="offered-item"> 
@@ -383,6 +479,15 @@
                 </div>
             </li>  
         </ul>
+    </div>
+    <div class="sns-icon-module">
+        <ul>
+            <li><img data-key="pinterest" src="http://assets.pinterest.com/images/pidgets/pin_it_button.png" /></li>
+            <li><img data-key="facebook"  src=""></li>           
+        </ul>
+http://business.pinterest.com/widget-builder/#do_pin_it_button
+
+        http://pinterest.com/pin/create/button/?url=http://deals.ebay.com/5000195599_Sony_HDR_CX190_High_Definition_Camcorder_w__Extra_Battery___16GB_Card&media=http://i.ebayimg.com/00/$(KGrHqJHJE8FD5m(bc2sBRES6Z4yq!~~_35.JPG
     </div>
 </body>
 </html>
