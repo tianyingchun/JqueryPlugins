@@ -190,6 +190,15 @@
             width: 14px;  
             display: inline-block;
          }
+
+        .sns-icon-module{
+            margin: 40px; 
+            padding-bottom: 20px;
+        }
+         .sns-icon-module li{
+            float: left;
+            margin: 0 10px;
+         }
     </style>
     <link rel="stylesheet" type="text/css" href="jBox.css">
     <script type="text/javascript" src="../jquery-1.8.0.min.js"></script>
@@ -442,15 +451,17 @@
     </div>
     <div class="sns-icon-module">
         <ul>
-            <li data-key="pinterest" data-i="http://www.dhresource.com/dhs/fob/img/home/home/1.jpg" data-s="pinterst summary testing"><img src="http://assets.pinterest.com/images/pidgets/pin_it_button.png" /></li>
             <li data-key="facebook" data-i='http://www.dhresource.com/dhs/fob/img/home/home/1.jpg'
-                data-u="http://www.dhgate.com/promotion-a-line-spaghetti-v-neck-beaded/p-ff8080813a071f7b013a63479ecc2965.html#nhp1208-bese-1" data-t="test title" data-s="Test summary & summary"><a href="#">facebook</a></li>           
+                data-u="http://www.dhgate.com/promotion-a-line-spaghetti-v-neck-beaded/p-ff8080813a071f7b013a63479ecc2965.html#nhp1208-bese-1" data-t="test title" data-s="Test summary & summary"><a href="#">facebook</a></li>
+            <li data-key="pinterest" data-i="http://www.dhresource.com/dhs/fob/img/home/home/1.jpg" data-s="pinterst summary testing">pinterest</li> 
+            <li data-key="twitter" data-u="http://www.dhgate.com/promotion-a-line-spaghetti-v-neck-beaded/p-ff8080813a071f7b013a63479ecc2965.html#nhp1208-bese-1" data-t="test twitter" >Twitter</li> 
+             <li data-key="gplus" data-u="http://www.dhgate.com/promotion-a-line-spaghetti-v-neck-beaded/p-ff8080813a071f7b013a63479ecc2965.html#nhp1208-bese-1">Google Plus</li>     
+             <li data-key="gbookmark" data-u="http://www.dhgate.com/promotion-a-line-spaghetti-v-neck-beaded/p-ff8080813a071f7b013a63479ecc2965.html#nhp1208-bese-1" data-t="title of gogle bookmark">Google Book mark</li>     
+              <li data-key="kaboodle" data-u="http://www.dhgate.com/promotion-a-line-spaghetti-v-neck-beaded/p-ff8080813a071f7b013a63479ecc2965.html#nhp1208-bese-1">kaboodle</li>     
+              <li data-key="delicious" data-u="http://www.dhgate.com/promotion-a-line-spaghetti-v-neck-beaded/p-ff8080813a071f7b013a63479ecc2965.html#nhp1208-bese-1" data-t="the title of delicious">delicious</li>    
         </ul>
-http://business.pinterest.com/widget-builder/#do_pin_it_button
-
-        http://pinterest.com/pin/create/button/?url=http://deals.ebay.com/5000195599_Sony_HDR_CX190_High_Definition_Camcorder_w__Extra_Battery___16GB_Card&media=http://i.ebayimg.com/00/$(KGrHqJHJE8FD5m(bc2sBRES6Z4yq!~~_35.JPG
     </div>
-    <<script type="text/javascript">
+    <script type="text/javascript">
         $(function(){
             // bind sns share button.
             $(".sns-icon-module").find("li").SNS();
