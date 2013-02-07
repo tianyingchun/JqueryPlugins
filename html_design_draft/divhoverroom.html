@@ -204,10 +204,10 @@
     <script type="text/javascript" src="../jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="../jquery.hoverIntent.js"></script> 
     <script type="text/javascript" src="../jquery.socialnetwork.js"></script>
-    <script type="text/javascript" src="../jquery.jBox-2.3.min.js"></script>
-    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="../jquery.jBox-2.3.min.js"></script> 
+ <!--   <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "37f401ad-c0dc-42a2-9e0d-e4ec6a39f1a2", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+<script type="text/javascript">stLight.options({publisher: "37f401ad-c0dc-42a2-9e0d-e4ec6a39f1a2", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>-->
     <script type="text/javascript">
         $(function(){
            $("div.offers").hoverIntent(function() { 
@@ -221,6 +221,11 @@
                       "margin-top":"+=15px"
                 },'fast').removeClass("hover");
             }); 
+           // var switchTo5x=true; 
+            $.getScript("http://w.sharethis.com/button/buttons.js",function(x){ 
+                console.log(stLight)
+                stLight.options({publisher: "37f401ad-c0dc-42a2-9e0d-e4ec6a39f1a2", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+            });
         });
     </script> 
 </head>
