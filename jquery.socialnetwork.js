@@ -59,6 +59,12 @@
                 newUrl=newUrl.replace(/%title%/,_title);
                 newUrl=newUrl.replace(/%url%/,_url);
             break;
+            // for digg
+            case "digg":
+                newUrl=newUrl.replace(/%title%/,_title);
+                newUrl=newUrl.replace(/%url%/,_url);
+                newUrl=newUrl.replace(/%summary%/,_summary);   
+            break;
         }
         return newUrl;
     };
@@ -87,8 +93,9 @@
         'gplus':'https://plus.google.com/share?url=%url%',
         'gbookmark':'https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=%url%&title=%title%',
         'kaboodle':'http://www.kaboodle.com/za/selectpage?p_pop=false&pa=url&u=%url%',
-        'delicious':'https://delicious.com/post?v=4;url=%url%;title=%title%',
-        'stumbleupon':'http://www.stumbleupon.com/submit?url=%url%&title=%title%'
+        'delicious':'https://delicious.com/save?url=%url%&title=%title%',
+        'stumbleupon':'http://www.stumbleupon.com/submit?url=%url%&title=%title%',
+        'digg':'http://digg.com/submit?phase=2&url=%url%&title=%title%&bodytext=%summary%&topic=%title%'
     };
     function SNS($element,opts){
         this.cfg=$.extend({},defaults,opts);  
@@ -117,6 +124,7 @@
     $.fn.extend({
         /**
          * configurations of sns plugins
+         * http://sharethis.com can provider us interated service.
          * @param {Object} options
          */
         SNS:function(options){
