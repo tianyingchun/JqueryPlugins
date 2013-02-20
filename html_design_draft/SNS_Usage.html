@@ -24,7 +24,16 @@
        	   height: 25px;
            padding:0 10px;
         }
-    </style>
+    </style> 
+    <script type="text/javascript" src="../jLoader.js"></script>
+      <script type="text/javascript">var switchTo5x=true;</script>
+
+    <script type="text/javascript">
+		(function () {
+			jQl.isDebug(true);jQl.loadJquery('http://localhost:200/Scripts/jquery-1.8.0.min.js');
+			jQl.boot();  
+		})();
+    </script> 
     <script type="text/javascript" src="http://connect.facebook.net/en_GB/all.js#xfbml=1"></script>
 	<script type="text/javascript" src="http://static.ak.fbcdn.net/connect.php/js/FB.Share"></script>
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
@@ -47,6 +56,20 @@
 		</li>
    	</ul>
    </div> 
+  <script type="text/javascript">
+
+    jQl.ready(function(){
+      var switchTo5x=true
+      $.getScript("http://w.sharethis.com/button/buttons.js", function () {
+                $.getScript("http://s.sharethis.com/loader.js", function () {
+                    stLight.options({ publisher: "37f401ad-c0dc-42a2-9e0d-e4ec6a39f1a2", doNotHash: false, doNotCopy: false, hashAddressBar: false });
+                    var options = { "publisher": "37f401ad-c0dc-42a2-9e0d-e4ec6a39f1a2", "logo": { "visible": true, "url": "http://www.clothesgate.com", "img": "http://clothesgate.com/content/images/logo.png", "height": 45 }, "ad": { "visible": false, "openDelay": "5", "closeDelay": "0" }, "livestream": { "domain": "", "type": "sharethis" }, "ticker": { "visible": false, "domain": "", "title": "", "type": "sharethis" }, "facebook": { "visible": true, "profile": "sharethis" }, "fblike": { "visible": true, "url": "www.facebook.com/clothesgate" }, "twitter": { "visible": false, "user": "sharethis" }, "twfollow": { "visible": true, "url": "http://twitter.com/clothesgate" }, "custom": [{ "visible": false, "title": "Custom 1", "url": "", "img": "", "popup": false, "popupCustom": { "width": 300, "height": 250 } }, { "visible": false, "title": "Custom 2", "url": "", "img": "", "popup": false, "popupCustom": { "width": 300, "height": 250 } }, { "visible": false, "title": "Custom 3", "url": "", "img": "", "popup": false, "popupCustom": { "width": 300, "height": 250 } }], "chicklets": { "items": ["stumbleupon", "kaboodle", "googleplus", "delicious", "facebook", "twitter", "linkedin", "pinterest", "email", "sharethis"] } };
+                    var st_bar_widget = new sharethis.widgets.sharebar(options);
+                });
+            });
+    });
+    jQl.boot();
+    </script>
 </body>
 </html>
 
