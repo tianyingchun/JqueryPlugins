@@ -58,7 +58,7 @@
 				var _opts=$.extend({},options,{startTime:_startTime,callback:$.isFunction(callbackFn)?callbackFn:function(){}});
 				new Timer($this,_opts).run();
 			}); 
-			new Timer(options).run();
+			//new Timer(options).run();
 		}
 	}); 
 })(jQuery);
