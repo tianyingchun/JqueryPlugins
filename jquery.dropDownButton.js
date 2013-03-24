@@ -1,4 +1,4 @@
-﻿(function ($) {
+(function ($) {
     /**
      * dropDownButton jquery plugin that can simple simulator pop menu 
      * and it always be used to website topheader pop dropdown menu Interactive experience.
@@ -44,7 +44,7 @@
             this.active();
         },
         active: function () {
-            var self = this;  
+            var self = this;
             self.$ddButton.bind("mouseenter", function () {
 
                 var $this = $(this), thisWidth = $this.width();
@@ -52,8 +52,7 @@
                 if (self.timer) self.timer = clearTimeout(self.timer);
                 // Add mouseenter active class on ddbutton.
                 $this.addClass(self.activeClass);
-
-                self.$ddList.css({ display: 'block', top: self.$topNav.height()+self.offset.y });
+                self.$ddList.css({ display: 'block', top: self.$topNav.height() + self.offset.y });
 
                 // Diff with of ddButtom and ddList
                 var ddListWidth = self.$ddList.width(), diffWidth = (ddListWidth > thisWidth) ? (ddListWidth - thisWidth) : 0;
@@ -96,40 +95,45 @@
         * The right structure is "<li id='tnCommunity'></li><div id='tnCommunityList'></div>"
         * Because of the mouseleave event invoke issue.
         * @param  {jquery object} $elems all jq object that  you want to trigger dropdown menu list.eg. $("#tnCommunity,#tnHelp");
-        * @param  {object} options An object that can hold configuration
-        *         eg.{ 
-                         listSelector:  ['#tnCommunityList', '#tnHelpList'],
-                         topNav: '#topNav',
-                         activeClass: 'tn-active',
-                         directions:[{offset:{x:0,y:0},direction:'right'},{offset:{x:0,y:0},direction:'left'}]
-                     };
+        * @param  {object} options An object that can hold configuration 
+        *         eg.$("#quick-menu").dropDownButton({  
+                        ddButtons: [
+                            { topNav: '#header-top', btnSelector: "#quick-menu .currency a.arrow", listSelector: '#quick-menu .currency .sub', direction: 'right', offset: { x: 0, y: -11 } },
+                            { topNav: '#header-top', btnSelector: "#quick-menu .help a.arrow", listSelector: '#quick-menu .help .sub', direction: 'right', offset: { x: 0, y: -11 } },
+                            { topNav: '#header-top', btnSelector: "#quick-menu .shoppingcart a.arrow", listSelector: '#quick-menu .shoppingcart .sub', direction: 'right', offset: { x: 0, y: -11 } }
+                        ],
+                        config: {
+                            activeClass: 'hover',
+                            timeout: '60'
+                        }
+                   });
         * @param  {function} the callback function that should be invoked while the pop panel has just shown.
 
         * @return {void} 
         */
         dropDownButton: function (options, callbackFn) {
-            return this.each(function (index) {
-                var $thisBtn = $(this), $thisList = $(options.listSelector[index]), $topNav = $(options.topNav);
-                var directions = options.directions ? options.directions : [];
-                var _direction = 'right', _offset = 0;
-                if (directions[index] && directions[index].direction) {
-                    _direction = directions[index].direction;
-                    _offset = directions[index].offset;
-                } 
-                if ($thisList.length) {
-                    var newOpts = $.extend({}, options, { list: $thisList.eq(0), topNav: $topNav, direction: _direction, offset: _offset, callback: $.isFunction(callbackFn) ? callbackFn : function () { } });
-                    //console.log("newOpts",newOpts);
-                    new DropdownButton($thisBtn, newOpts).init();
-                }
-            });
+
+            for (var i = 0; i < options.ddButtons.length; i++) {
+                // var curButton = options.ddButton[i];
+                var ddButton = options.ddButtons[i];
+
+                var $this = $(ddButton.btnSelector),
+                    $thisList = $(ddButton.listSelector),
+                    _direction = ddButton.direction,
+                    _offset = ddButton.offset,
+                    $topNav = $(ddButton.topNav);
+                var newOpts = $.extend({}, options.config, { list: $thisList, topNav: $topNav, direction: _direction, offset: _offset });
+                new DropdownButton($this, newOpts).init();
+            }
+
         }
     });
     // a shortcut of plugin 'dropDownButton'.
     $.dropDownButton = {
         varsion: 1.0,
         author: "terence tian",
-        create: function (selector, opts,callbackFn) {
-            return $(selector).dropDownButton(opts,callbackFn);
+        create: function (selector, opts, callbackFn) {
+            return $(selector).dropDownButton(opts, callbackFn);
         }
     };
 })(jQuery);
